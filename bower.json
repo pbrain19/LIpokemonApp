@@ -1,0 +1,19 @@
+{
+  "name": "LIpokemonApp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/pbrain19/LIpokemonApp",
+  "authors": [
+    "pbrain19 <pbrain19@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15"
+  }
+}
