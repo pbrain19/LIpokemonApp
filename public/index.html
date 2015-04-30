@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <script src="/components/angular/angular.js"></script>
+</head>
+<body>
+
+<script>
+  angular.module('app', [])
+  .controller('DemoController', function($scope, $http){
+    $http.get('http://pokeapi.co/api/v1/pokedex/1/')
+    .then(function(data) {
+      $scope.pokemon = data;
+    });
+  })
+</script>
+
+
+<div class="container" ng-controller="DemoController">
+  <div class="row">
+  <h1>Pokemons</h1>
+
+  {{pokemon}}
+
+  </div>
+</div>
+
+
+</body>
+</html>
