@@ -2,7 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
-  <title>My HTML File</title>
+  <title>Swaggy P</title>
   <script src="/components/angular/angular.js"></script>
 </head>
 <body>
@@ -10,21 +10,30 @@
 <script>
   angular.module('app', [])
   .controller('DemoController', function($scope, $http){
-    $http.get('http://pokeapi.co/api/v1/pokedex/1/')
-    .then(function(data) {
-      $scope.pokemon = data;
+    $http.get('http://pokeapi.co/api/v1/pokemon/5/')
+    .success(function(response) {
+      $scope.abilities = response.abilities;
+      $scope.descriptions = response.descriptions;
     });
   })
 </script>
 
 
 <div class="container" ng-controller="DemoController">
-  <div class="row">
   <h1>Pokemons</h1>
 
-  {{pokemon}}
 
-  </div>
+ <div class="row" ng-repeat="aba in abilities">
+	  <span>
+	  {{aba.resource_uri}} -------- {{aba.name}}
+	  </span>
+ </div>
+
+ <div class="row" ng-repeat="aba in descriptions">
+	  <span>
+	  {{aba.resource_uri}} -------- {{aba.name}}
+	  </span>
+ </div>
 </div>
 
 
