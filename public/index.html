@@ -7,24 +7,25 @@
 </head>
 <body>
 
-<script>
-  angular.module('app', [])
-  .controller('DemoController', function($scope, $http){
-    $http.get('http://pokeapi.co/api/v1/pokedex/1/')
-    .then(function(data) {
-      $scope.pokemon = data;
-    });
-  })
-</script>
+<script src="app.js"></script>
+<script src="controller.js"></script>
+<script src="service.js"></script>
+
 
 
 <div class="container" ng-controller="DemoController">
-  <div class="row">
   <h1>Pokemons</h1>
+  <input type="number" ng-model="pokemonid">
+  <button ng-click="getPokemon()">click me</button>
 
-  {{pokemon}}
+  <div>{{newPokemon}}</div>
+  <div class="row" ng-repeat="aba in pokemon">
+    <span >
+    {{aba.name}} ------ {{aba.resource_uri}}
+    </span>
 
   </div>
+
 </div>
 
 
