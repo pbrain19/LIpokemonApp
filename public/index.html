@@ -2,38 +2,44 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
-  <title>Swaggy P</title>
+  <title>PokeCity</title>
   <script src="/components/angular/angular.js"></script>
 </head>
 <body>
 
-<script>
-  angular.module('app', [])
-  .controller('DemoController', function($scope, $http){
-    $http.get('http://pokeapi.co/api/v1/pokemon/5/')
-    .success(function(response) {
-      $scope.abilities = response.abilities;
-      $scope.descriptions = response.descriptions;
-    });
-  })
-</script>
+<script src="app.js"></script>
+<script src="controller.js"></script>
+<script src="service.js"></script>
+
 
 
 <div class="container" ng-controller="DemoController">
-  <h1>Pokemons</h1>
+  <h1>The Grand Pokedex</h1>
+  <input type="number" ng-model="pokemonid">
+  <button ng-click="getPokemon()">click me</button>
 
+  <div>{{newPokemon}}</div>
+  <div class="row" ng-repeat="aba in pokemon">
+    <span >
+    
+    </span>
+    <table style=" border: 1px solid black">
+    <tr>
+      <td>{{aba.name}} </td>
+      <td>{{aba.resource_uri}}</td>
+    </tr>
+    <tr>
+      <td>{{aba.moves}}</td>
+    </tr>
 
- <div class="row" ng-repeat="aba in abilities">
-	  <span>
-	  {{aba.resource_uri}} -------- {{aba.name}}
-	  </span>
- </div>
+    <tr>
+      <td>{{aba.type}}</td>
+    </tr>
 
- <div class="row" ng-repeat="aba in descriptions">
-	  <span>
-	  {{aba.resource_uri}} -------- {{aba.name}}
-	  </span>
- </div>
+    </table>
+
+  </div>
+
 </div>
 
 
