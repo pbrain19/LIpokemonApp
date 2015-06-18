@@ -41,7 +41,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/type/' + typeid)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
@@ -53,7 +53,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/ability/' + abilityId)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
@@ -65,7 +65,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/egg/' + eggId)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
@@ -77,7 +77,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/sprite/' + spriteId)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
@@ -89,7 +89,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/description/' + descriptionId)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
@@ -101,7 +101,7 @@ angular.module('app')
      
      $http.get('http://pokeapi.co/api/v1/game/' + gameId)
         .success(function(response){
-        deferred.resolve(response);
+          deferred.resolve(response);
       });
 
         return deferred.promise;
