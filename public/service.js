@@ -25,10 +25,10 @@ angular.module('app')
       return deferred.promise;
     }
 
-    function getPokemonMoves (moves){
+    function getPokemonMoves (moves_id){
     	var deferred = $q.defer();
 
-    	$http.get ('http://pokeapi.co/api/v1/move/1/' + moves)
+    	$http.get ('http://pokeapi.co/api/v1/move/' + moves_id)
     	.success(function(response){
     		deferred.resolve(response);
     	});
