@@ -7,9 +7,9 @@ angular.module('app')
       var deferred = $q.defer();
 
       $http.get('http://pokeapi.co/api/v1/pokedex/1/')
-        .success(function(response) {
-          deferred.resolve(response);
-        });
+      .success(function(response) {
+        deferred.resolve(response);
+      });
 
       return deferred.promise;
     }
@@ -18,17 +18,17 @@ angular.module('app')
       var deferred = $q.defer();
 
       $http.get('http://pokeapi.co/api/v1/pokemon/' + id)
-        .success(function(response) {
-          deferred.resolve(response);
-        });
+      .success(function(response) {
+        deferred.resolve(response);
+      });
 
       return deferred.promise;
     }
 
-    function getPokemonMoves (moves_id){
+    function getPokemonMoves(movesId) {
     	var deferred = $q.defer();
 
-    	$http.get ('http://pokeapi.co/api/v1/move/' + moves_id)
+    	$http.get ('http://pokeapi.co/api/v1/move/' + movesId)
     	.success(function(response){
     		deferred.resolve(response);
     	});
@@ -36,15 +36,75 @@ angular.module('app')
       return deferred.promise;
     }
 
-    function getPokemonType (typeid){
+    function getPokemonType(typeId) {
       var deferred = $q.defer();
      
-     $http.get('http://pokeapi.co/api/v1/type/' + typeid)
-        .success(function(response){
+      $http.get('http://pokeapi.co/api/v1/type/' + typeId)
+      .success(function(response){
         deferred.resolve(response);
       });
 
-        return deferred.promise;
+      return deferred.promise;
+
+    }
+
+    function getPokemonAbility(abilityId) {
+      var deferred = $q.defer();
+     
+      $http.get('http://pokeapi.co/api/v1/ability/' + abilityId)
+      .success(function(response){
+        deferred.resolve(response);
+      });
+
+      return deferred.promise;
+
+    }
+
+    function getPokemonEgg(eggId) {
+      var deferred = $q.defer();
+     
+      $http.get('http://pokeapi.co/api/v1/egg/' + eggId)
+      .success(function(response){
+        deferred.resolve(response);
+      });
+
+      return deferred.promise;
+
+    }
+
+    function getPokemonDescription(descriptionId) {
+      var deferred = $q.defer();
+     
+      $http.get('http://pokeapi.co/api/v1/description/' + descriptionId)
+      .success(function(response){
+        deferred.resolve(response);
+      });
+
+      return deferred.promise;
+
+    }
+
+    function getPokemonSprite(spriteId) {
+      var deferred = $q.defer();
+     
+      $http.get('http://pokeapi.co/api/v1/sprite/' + spriteId)
+      .success(function(response){
+        deferred.resolve(response);
+      });
+
+      return deferred.promise;
+
+    }
+
+    function getPokemonGame(gameId) {
+      var deferred = $q.defer();
+     
+      $http.get('http://pokeapi.co/api/v1/game/' + gameId)
+      .success(function(response){
+        deferred.resolve(response);
+      });
+
+      return deferred.promise;
 
     }
 
@@ -52,7 +112,12 @@ angular.module('app')
       getAllPokemon: getAllPokemon,
       getPokemon: getPokemon,
       getPokemonMoves: getPokemonMoves,
-      getPokemonType: getPokemonType
+      getPokemonType: getPokemonType,
+      getPokemonAbility: getPokemonAbility,
+      getPokemonEgg: getPokemonEgg,
+      getPokemonDescription: getPokemonDescription,
+      getPokemonSprite: getPokemonSprite,
+      getPokemonGame: getPokemonGame
     }
 
   })
