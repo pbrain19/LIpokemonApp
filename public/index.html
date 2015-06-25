@@ -46,9 +46,21 @@
         <header class="jumbotron hero-spacer">
             <h1>The Grand Pokedex</h1>
             <p>Welcome to the most worthless app of all time. Sometimes it works, sometimes it doesn't at all!</p>
-            <div class="search-wrapper">
-                <input class="search-input" ng-model="search">
-            </div>
+
+            <div class="row search-wrapper-row">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="search for pokemon" ng-model="search"/>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                            </span>
+                        </div>
+                    </div>
+              </div>
+           <!--  <div class="search">
+                <input class="form-control input-sm" maxlength="64" placeholder="Search"ng-model="search"/>
+                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+            </div> -->
         </header>
 
         <!-- Title -->
