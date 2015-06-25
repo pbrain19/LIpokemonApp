@@ -3,22 +3,21 @@
 angular.module('app')
 .controller('DemoController', function($scope, $http, Pokemon){
 
-    
-    $scope.getPokemon = function() {
+    Pokemon.get('pokedex')
+      .then(function(data) {
+        $scope.allPokemon = data.pokemon; 
+      })
+
+
+    $scope.get = function() {
 
       console.log('hey it works here')
       var id = $scope.pokemonid;
-      Pokemon.getPokemon(id)
+      Pokemon.get('pokemon', id)
         .then(function(data) {
           $scope.newPokemon = data;
         })
 
     }
-
-
-    Pokemon.getAllPokemon()
-      .then(function(data) {
-        $scope.pokemon = data.pokemon;
-      });
 
   })
