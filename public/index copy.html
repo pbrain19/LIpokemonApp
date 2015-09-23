@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>PokeCity</title>
+
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link href="style/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="style/heroic-features.css" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.min.js"></script>
+<script src="//desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="//code.angularjs.org/1.2.13/angular.js"></script>
+
+  <script src="/components/angular-masonry/angular-masonry.js"></script>
+</head>
+<body>
+
+<script src="app.js"></script>
+<script src="controller.js"></script>
+<script src="service.js"></script>
+
+
+<div class="container" ng-controller="DemoController">
+    <div class="row">
+          <div class="col-med-12">
+              <h1>The Grand Pokedex</h1>
+              <div><input ng-model="search"></div>
+              <div masonry column-width="250" column-height:"250">
+                <div class="masonry-brick" ng-repeat="pokemon in allPokemon | limitTo:500 | filter:search"> 
+                    <img ng-src="//pokeapi.co/media/img/{{$index + 1}}.png">
+                    <h2>{{pokemon.name}}</h2>
+                    <p>{{pokemon.resource_uri}}</p>
+                    <p>{{pokemon.learn_type}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+
+
+ 
+
+
+</body>
+</html>

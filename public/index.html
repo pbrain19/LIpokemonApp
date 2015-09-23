@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>PokeCity</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link href="style/bootstrap.min.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/masonry/3.1.2/masonry.pkgd.min.js"></script>
+  <script src="//desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="//code.angularjs.org/1.2.13/angular.js"></script>
+  <script src="/components/angular-masonry/angular-masonry.js"></script>
+</head>
+<body>
+
+<script src="app.js"></script>
+<script src="controller.js"></script>
+<script src="service.js"></script>
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">PokeCity</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+     <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1>The Grand Pokedex</h1>
+            <p>Welcome to the most worthless app of all time. Sometimes it works, sometimes it doesn't at all!</p>
+
+            <div class="row search-wrapper-row">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="search for pokemon" ng-model="search"/>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                            </span>
+                        </div>
+                    </div>
+              </div>
+           <!--  <div class="search">
+                <input class="form-control input-sm" maxlength="64" placeholder="Search"ng-model="search"/>
+                <button type="submit" class="btn btn-primary btn-sm">Search</button>
+            </div> -->
+        </header>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Search Results:</h3>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Masonry Layout -->
+        <div class="row" ng-controller="DemoController">
+          <div class="col-lg-12 search-results">
+             <div>
+                <div masonry column-width="250" column-height:"250">
+                  <div class="masonry-brick thumbnail" ng-repeat="pokemon in allPokemon | limitTo:500 | filter:search"> 
+                      <img ng-src="//pokeapi.co/media/img/{{$index + 1}}.png">
+                      <h2>{{pokemon.name}}</h2>
+                      <p>{{pokemon.resource_uri}}</p>
+                      <p>{{pokemon.learn_type}}</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; You never would want to take this shit anyways 2015.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+</body>
+</html>
